@@ -10,6 +10,7 @@ The system dynamically provides next word suggestions as the user types, similar
 
 - **Next Word Prediction**: Predicts the next word based on the last two typed words.
 - **Real-Time Suggestions**: Displays word suggestions as the user types.
+- **Corpus used**: Uses the *The Odyssey* book as a corpus to train a trigram n-gram model.
 - **Backend**: Built using **Flask** to serve a Trigram model for predicting the next word.
 - **Frontend**: Created with **HTML**, **CSS**, and **JavaScript** for user interaction.
 - **Interactive UI**: The user can press **Enter** to automatically insert the predicted word into the text field.
@@ -28,3 +29,76 @@ The system dynamically provides next word suggestions as the user types, similar
 
 ## **Project Structure**
 
+├── app.py # Flask application
+├── corpus.txt # Text file used to build the N-gram model
+├── templates/
+  └── index.html # HTML structure for the webpage, includes css and javascript
+└── requirements.txt # Python dependencies
+
+
+---
+
+## **Installation**
+
+To run this project locally, follow these steps:
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/next-word-prediction.git
+    cd next-word-prediction
+    ```
+
+2. Install the required dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. Download the necessary NLTK data (for tokenization):
+    ```bash
+    python -m nltk.downloader punkt
+    ```
+
+5. Ensure that the `corpus.txt` file is present in the root directory.
+
+---
+
+## **Run the Application Locally**
+
+1. Start the Flask server:
+    ```bash
+    python app.py
+    ```
+
+2. Open your browser and navigate to:
+    ```
+    http://127.0.0.1:5000/
+    ```
+    
+---
+
+## **Libraries and Technologies Used**
+
+- **Flask**: Web framework for Python.
+- **NLTK**: Natural Language Toolkit, used for tokenizing and building the n-gram model.
+- **HTML/CSS**: For creating and styling the user interface.
+- **JavaScript**: For handling user input and interacting with the backend via API calls.
+
+---
+
+## **Challenges Faced**
+
+- **Handling large text corpora**: The corpus used to train the n-gram model can be quite large, requiring efficient handling and processing to ensure the application performs well.
+- **Real-time predictions**: Implementing an efficient system for real-time text predictions while ensuring responsiveness and accuracy.
+
+---
+
+## **Requirements**
+
+- Python 3.x
+- Flask
+- NLTK
+
+You can install the necessary Python libraries using:
+
+```bash
+pip install -r requirements.txt
