@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Word Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #inputText {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        #prediction {
+            font-size: 18px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Next Word Prediction</h1>
+    <label for="inputText">Start typing something:</label>
+    <input type="text" id="inputText" placeholder="Type something..." />
+
+    <div id="prediction"></div>
+
+    <script>
+        function predictNextWord() {
+            const inputText = document.getElementById('inputText').value;
+
+            if (inputText.split(' ').length >= 2) {
+                fetch('http://127.0.0.1:5000/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ text: inputText })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const prediction = data.prediction;
+                    document.getElementById('prediction').textContent = `Predicted next word: ${prediction}`;
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        }
+
+        document.getElementById('inputText').addEventListener('input', predictNextWord);
+
+        document.getElementById('inputText').addEventListener('keydown', function(event) {
+            if (event.key === "Enter") {
+                const predictedWord = document.getElementById('prediction').textContent.split(': ')[1];
+                const inputText = document.getElementById('inputText');
+                inputText.value += " " + predictedWord;
+                event.preventDefault();
+            }
+        });
+    </script>
+
+</body>
+</html>
