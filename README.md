@@ -32,7 +32,7 @@ The system dynamically provides next word suggestions as the user types, similar
 ├── app.py # Flask application<br>
 ├── corpus.txt # Text file used to build the N-gram model<br>
 ├── templates/<br>
-  └── index.html # HTML structure for the webpage, includes css and javascript<br>
+&nbsp└── index.html # HTML structure for the webpage, includes css and javascript<br>
 └── requirements.txt # Python dependencies<br>
 
 
