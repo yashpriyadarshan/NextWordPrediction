@@ -29,11 +29,11 @@ The system dynamically provides next word suggestions as the user types, similar
 
 ## **Project Structure**
 
-├── app.py # Flask application
-├── corpus.txt # Text file used to build the N-gram model
-├── templates/
-  └── index.html # HTML structure for the webpage, includes css and javascript
-└── requirements.txt # Python dependencies
+├── app.py # Flask application<br>
+├── corpus.txt # Text file used to build the N-gram model<br>
+├── templates/<br>
+  └── index.html # HTML structure for the webpage, includes css and javascript<br>
+└── requirements.txt # Python dependencies<br>
 
 
 ---
